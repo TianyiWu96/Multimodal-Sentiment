@@ -30,7 +30,7 @@ Note: This will create speaker independent train and test splits
 
 ### Running Model
 
-All training are done in Multimodel.ipynb
+All training are done in multimodel.ipynb
 Simply follow the notebook and run the following codes for unimodel training 
 
 ```
