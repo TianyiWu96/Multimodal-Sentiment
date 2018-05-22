@@ -4,7 +4,7 @@
 Code is written in Python (3.5) with Jupter Notebook and requires Pytorch (0.4.0) for training. GPU is optional for model training.
 
 ### Description
-We follow the work below to replicate the result using LSTM-based model that enables utterances to capture contextual information.
+We follow the work below to replicate the result using LSTM model on video utterances to capture contextual information for sentiment analysis.
 ```
 @inproceedings{soujanyaacl17,
   title={Context-dependent sentiment analysis in user-generated videos},
@@ -49,7 +49,7 @@ For multimodel training, run the following code:
 ```
 train_multimodel(epochs = 50, stop_early = 20)
 ```
-
+Results (Training, validation, and test accuracy and loss) are saved in "result/multimodel_result_epoch_30.pickle".
 ### TODO
 
 Current multimodal training does not yield further improvement over unimodel training. Next step is to change fusion strategy and double check training strategy to improve results.
