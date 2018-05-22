@@ -41,8 +41,8 @@ train_unimodel(epochs = 30,
       hidden_size = 300, 
       dropout = 0.9)
 ```
-Note: stop_early should be optional.
-After training, 100 dimension features are generated for each modality and saved as "result/mode_unimodel_epoch_30.pickle"
+Note: stop_early should be optional.  
+After training, 100 dimension features are generated for each modality and saved as "result/mode_unimodel_epoch_30.pickle".  
 Results (Training, validation, and test accuracy and loss) are saved in "result/mode_unimodel_epoch_30.pickle".
 
 For multimodel training, run the following code:
@@ -57,7 +57,7 @@ Current multimodal training does not yield further improvement over unimodel tra
 ### Developers
 
 #### Tianyi Wu
-M.S. student, University of California, San Diego
+M.S. student, University of California, San Diego  
 email: tiw206@ucsd.edu  
  
 
