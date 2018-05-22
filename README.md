@@ -1,7 +1,7 @@
 ## Context-Dependent Sentiment Analysis in User-Generated Videos
 
 ### Requirements
-Code is written in Python (3.5) with Jupter Notebook and requires Pytorch (0.4.0) for training. GPU is not optional for model training.
+Code is written in Python (3.5) with Jupter Notebook and requires Pytorch (0.4.0) for training. GPU is optional for model training.
 
 ### Description
 We follow the work below to replicate the result using LSTM-based model that enables utterances to capture contextual information.
