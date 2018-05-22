@@ -1,45 +1,10 @@
 ## Context-Dependent Sentiment Analysis in User-Generated Videos
-Code for the paper [Context-Dependent Sentiment Analysis in User-Generated Videos](http://sentic.net/context-dependent-sentiment-analysis-in-user-generated-videos.pdf) (ACL 2017).
 
 ### Requirements
-Code is written in Python (2.7) and requires Keras (2.0.6) with Theano backend.
+Code is written in Python (3.5) with Jupter Notebook and requires Pytorch (0.4.0) for training. GPU is not optional for model training.
 
 ### Description
-In this paper, we propose a LSTM-based model that enables utterances to capture contextual information from their surroundings in the same video, thus aiding the classification process in multimodal sentiment analysis.
-
-![Alt text](network.jpg?raw=true "Title")
-
-This repository contains the code for the mentioned paper. Each contextual LSTM (Figure 2 in the paper) is implemented as shown in above figure. For more details, please refer to the paper.   
-Note: Unlike the paper, we haven't used an SVM on the penultimate layer. This is in effort to keep the whole network differentiable at some performance cost.
-
-### Dataset
-We provide results on the [MOSI dataset](https://arxiv.org/pdf/1606.06259.pdf)  
-Please cite the creators 
-
-
-### Preprocessing
-As data is typically present in utterance format, we combine all the utterances belonging to a video using the following code
-
-```
-python create_data.py
-```
-
-Note: This will create speaker independent train and test splits 
-
-### Running sc-lstm
-
-Sample command:
-
-```
-python lstm.py --unimodal True
-python lstm.py --unimodal False
-```
-
-Note: Keeping the unimodal flag as True (default False) shall train all unimodal lstms first (level 1 of the network mentioned in the paper)
-
-### Citation 
-
-If using this code, please cite our work using : 
+We follow the work below to replicate the result using LSTM-based model that enables utterances to capture contextual information.
 ```
 @inproceedings{soujanyaacl17,
   title={Context-dependent sentiment analysis in user-generated videos},
@@ -49,15 +14,52 @@ If using this code, please cite our work using :
 }
 ```
 
+### Dataset
+We provide results on the [MOSI dataset](https://arxiv.org/pdf/1606.06259.pdf)  
+
+### Preprocessing
+
+We used the same code provided by the author for data processing.
+The code is: 
+
+```
+python create_data.py
+```
+
+Note: This will create speaker independent train and test splits 
+
+### Running Model
+
+All training are done in Multimodel.ipynb
+Simply follow the notebook and run the following codes for unimodel training 
+
+```
+train_unimodel(epochs = 30, 
+               batch_size = 10,
+      validation_split = 0.2, 
+      stop_early = 15, 
+      hidden_size = 300, 
+      dropout = 0.9)
+```
+Note: stop_early should be optional.
+After training, 100 dimension features are generated for each modality and saved as "result/mode_unimodel_epoch_30.pickle"
+Results (Training, validation, and test accuracy and loss) are saved in "result/mode_unimodel_epoch_30.pickle".
+
+For multimodel training, run the following code:
+```
+train_multimodel(epochs = 50, stop_early = 20)
+```
+
+### TODO
+
+Current multimodal training does not yield further improvement over unimodel training. Next step is to change fusion strategy and double check training strategy to improve results.
+
 ### Developers
 
-#### Devamanyu Hazarika
-Ph.D. Researcher, NUS, Singapore  
-email: devamanyu@u.nus.edu  
-
-#### [Soujanya Poria](http://sporia.info/), Ph.D.
-Senior Research Scientist, NTU, Singapore  
-email: sporia@ntu.edu.sg  
+#### Tianyi Wu
+M.S. student, University of California, San Diego
+email: tiw206@ucsd.edu  
+ 
 
 
 
