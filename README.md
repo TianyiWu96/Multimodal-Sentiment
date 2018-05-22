@@ -13,7 +13,7 @@ We follow the work below to replicate the result using LSTM model on video utter
   year={2017}
 }
 ```
-
+![model](https://github.com/TianyiWu96/Multimodal-Sentiment/blob/master/network.jpg)
 ### Dataset
 We provide results on the [MOSI dataset](https://arxiv.org/pdf/1606.06259.pdf)  
 
